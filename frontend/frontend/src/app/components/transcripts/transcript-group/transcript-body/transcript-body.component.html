@@ -1,0 +1,7 @@
+<div *ngIf="transcript">
+  <div *ngIf="transcript.successful === true; else errorBlock">{{transcript.resultText}}</div>
+  <ng-template #errorBlock>
+    Błąd podczas transkrypcji: <br>
+    <div>{{transcript.errorMessage}}</div>
+  </ng-template>
+</div>

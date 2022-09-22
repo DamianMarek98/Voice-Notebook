@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Tytuł" aria-label="Tytuł" [(ngModel)]="title"
+           aria-describedby="save-button" style="width: 80%">
+    <button class="btn btn-outline-success" type="button" id="save-button" (click)="saveNote()"
+            [disabled]="saveValid()">Zapisz
+    </button>
+    <label *ngIf="title.length < 5" style="color: red">Tytuł musi mieć minimum 5 znaków!</label>
+  </div>
+</div>
+<div class="row">
+  <textarea class="form-control" [(ngModel)]="text" placeholder="Twoja notatka" id="floatingTextarea2"
+            style="height: 50vh" #note [disabled]="recognitionInProgress()"></textarea>
+  <div style="padding-top: 1%">
+    <button class="btn btn-success" (click)="saveNote()" [disabled]="saveValid()">
+      Zapisz
+    </button>
+  </div>
+</div>
+

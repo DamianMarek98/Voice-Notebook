@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <app-notes-list (noteSelected)="noteSelected($event)"></app-notes-list>
+    </div>
+    <div class="col-7">
+      <app-note #note [selectedNote]="currentNote"></app-note>
+    </div>
+    <div class="col-2">
+      <div>
+        <app-provider-selection></app-provider-selection>
+      </div>
+      <div style="padding-top: 2%">
+        <app-microphone [note]="note"></app-microphone>
+      </div>
+    </div>
+  </div>
+</div>

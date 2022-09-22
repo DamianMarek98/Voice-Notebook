@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Tytuł" aria-label="Tytuł" [(ngModel)]="title"
+           aria-describedby="save-button">
+    <button class="btn btn-outline-success" type="button" id="save-button" (click)="createNote()"
+            [disabled]="recognitionInProgress()">Utwórz
+    </button>
+    <label *ngIf="toShortTitle" style="color: red">Tytuł musi mieć minimum 5 znaków!</label>
+  </div>
+</div>
+<div *ngFor="let note of notes" class="row">
+  <app-note-card [note]="note" [lastNote]="lastNote()" (noteSelected)="newNoteSelected($event)"
+                 (noteToDelete)="deleteNote($event)">
+  </app-note-card>
+</div>

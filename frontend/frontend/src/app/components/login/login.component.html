@@ -1,0 +1,35 @@
+<div class="col" style="height: 100%">
+  <div class="position-absolute top-50 start-50 translate-middle">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Nazwa Użytkownika
+            <input [ngClass]="{ 'is-invalid': submitted && formControls.username.errors }" class="form-control"
+                   formControlName="username"
+                   type="text"/>
+          </label>
+          <div *ngIf="submitted && formControls.username.errors" class="invalid-feedback">
+            <div *ngIf="formControls.username.errors.required">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Hasło
+            <input [ngClass]="{ 'is-invalid': submitted && formControls.password.errors }" class="form-control"
+                   formControlName="password"
+                   type="password"/>
+          </label>
+          <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
+            <div *ngIf="formControls.password.errors.required">Password is required</div>
+          </div>
+        </div>
+        <div class="form-group" style="padding-top: 1%">
+          <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Zaloguj
+          </button>
+          <div *ngIf="error" class="alert alert-danger" role="alert" style="margin-top: 1%">
+            {{errorMessage}}
+          </div>
+        </div>
+      </form>
+</div>
+</div>

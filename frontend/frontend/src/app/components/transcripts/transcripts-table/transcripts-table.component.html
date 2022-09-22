@@ -1,0 +1,19 @@
+<h4>Grupy transkrypcji</h4>
+<table class="table table-bordered">
+  <thead>
+    <th scope="col">Nazwa</th>
+    <th scope="col">Transkrypcja zakończona</th>
+    <th scope="col">Utworzono</th>
+    <th scope="col">Status</th>
+    <th scope="col">Błąd</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let group of transcriptGroups" (click)="goToTranscripts(group)" [ngClass]="getStatusClass(group)">
+      <td>{{group.name}}</td>
+      <td>{{group.finished ? 'Tak' : 'Nie'}}</td>
+      <td>{{getCreationDate(group.createdOn)}}</td>
+      <td>{{group.status}}</td>
+      <td>{{group.errorMessage}}</td>
+    </tr>
+  </tbody>
+</table>

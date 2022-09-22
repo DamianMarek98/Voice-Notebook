@@ -1,0 +1,5 @@
+<label>Wybierz serwis STT:</label>
+<select class="form-select" aria-label="Default select example" [(ngModel)]="provider" (change)="changeProvider()"
+        [disabled]="recognitionInProgress()">
+  <option *ngFor="let provider of providers" [value]="provider">{{provider}}</option>
+</select>

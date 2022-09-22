@@ -1,0 +1,8 @@
+<div class="card border-secondary mb-2" (click)="selectNote()">
+  <div class="card-body">
+    <h5 class="card-title">{{note?.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{noteModificationTime()}}</h6>
+    <p class="card-text">{{note?.contentBeginning}}</p>
+    <button class="btn btn-danger" (click)="deleteNote()" [disabled]="recognitionInProgress() || lastNote">Usuń</button>
+  </div>
+</div>
